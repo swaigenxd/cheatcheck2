@@ -1,0 +1,21 @@
+Clear-Host
+
+Write-Host ""
+Write-Host ""
+Write-Host "--------------------------------------------------------------------------------"
+Write-Host -ForegroundColor Blue "   Made By swaigen - " -NoNewLine
+Write-Host "--------------------------------------------------------------------------------"
+Write-Host ""
+Write-Host ""
+
+$historyFile = "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt"
+
+$history = Get-Content $historyFile
+
+$customTitle = "swaigen"
+
+
+$history | Select-Object @{Name="Command"; Expression={$_}} | Out-GridView -Title $customTitle
+
+
+Start-Sleep -Seconds 9999
